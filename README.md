@@ -182,6 +182,28 @@ TAVILY_API_KEY=Tavily密钥                        # https://app.tavily.com 免�
 | `AGENT_CONTEXT_MAX_MESSAGES` | 40 | 上下文最大消息条数 |
 | `AGENT_TOOL_RESULT_MAX_CHARS` | 2000 | 单条工具结果截断阈值 |
 | `AGENT_MEMORY_COMPACT_AFTER` | 18 | 触发 LLM 压缩的历史消息数 |
+| `AGENT_SOUL_FILE` | `SOUL.md` | 人设文件名（templates/ 下，见下节） |
+
+### 2.1 人设切换（只需改一步配置）
+
+Agent 的人设由 `templates/` 下的 Markdown 文件定义，**默认指向 `SOUL.md`（通用模版）**。
+每次调用模型前，`core/loop.py` 的 `build_system_prompt()` 会读取该文件注入系统提示词。
+
+**切换人物只改一行配置**，无需动代码：
+
+```bash
+# lemons_agents/.env
+AGENT_SOUL_FILE=SOUL_zhenmei.md   # 改成 templates/ 下任意人设文件名
+```
+
+**新增自定义人物**：
+
+1. 复制 `templates/SOUL.md` 为 `templates/SOUL_<名字>.md`（如 `SOUL_zhenmei.md`）
+2. 按模版里的注释填写身份 / 性格 / 沟通方式
+3. `.env` 中把 `AGENT_SOUL_FILE` 指向新文件名
+
+约定：`SOUL_*.md` 已在 `.gitignore` 中（私人设定不入库），
+只有通用模版 `SOUL.md` 会提交；人设文件缺失时 Agent 回退到极简默认人设并告警，不会崩溃。
 
 ### 3. 启动
 

@@ -13,3 +13,6 @@ __pycache__/
 sessions/
 logs/
 memory/history.jsonl
+
+# 私人设定人设文件（个人设定不入库）
+templates/SOUL_*.md

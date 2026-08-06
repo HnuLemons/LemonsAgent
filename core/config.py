@@ -74,3 +74,7 @@ COMPACT_AFTER_MESSAGES = int(os.environ.get("AGENT_MEMORY_COMPACT_AFTER", "18"))
 MAX_TURNS = int(os.environ.get("AGENT_MAX_TURNS", "20"))  # 最大对话轮次（一轮 = 一条用户文本消息）
 CONTEXT_MAX_MESSAGES = int(os.environ.get("AGENT_CONTEXT_MAX_MESSAGES", "40"))  # 上下文中最多保留的消息条数
 TOOL_RESULT_MAX_CHARS = int(os.environ.get("AGENT_TOOL_RESULT_MAX_CHARS", "2000"))  # 单条工具结果最大字符数（超出截断）
+
+# 人设文件（core/loop.py 使用）：改 .env 的 AGENT_SOUL_FILE 一行即可切换人物
+SOUL_FILE = os.environ.get("AGENT_SOUL_FILE", "SOUL.md")  # templates/ 下的人设文件名
+SOUL_PATH = TEMPLATES_DIR / SOUL_FILE

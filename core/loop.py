@@ -1,15 +1,15 @@
 from .compactor import compact_history
-from .config import MODEL, TEMPLATES_DIR, client
+from .config import MODEL, SOUL_PATH, client
 from .context import ContextManager
 from .memory import MEMORY
 from .skill import SKILL_LOADER
 from ..tools.registry import TOOLS, execute_tool
 
-SOUL_PATH = TEMPLATES_DIR / "SOUL.md"  # 人设定义文件（改人设只改它，无需动代码）
+# 人设文件路径来自 config（由 .env 的 AGENT_SOUL_FILE 决定，默认 templates/SOUL.md）
 
 
 def _load_soul() -> str:
-    """读取 SOUL.md 人设；文件缺失/读取失败时回退到默认人设，保证 Agent 可用。"""
+    """读取人设文件；缺失/读取失败时回退到默认人设，保证 Agent 可用。"""
     try:
         return SOUL_PATH.read_text(encoding="utf-8").strip()
     except OSError as exc:
