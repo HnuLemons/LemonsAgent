@@ -184,7 +184,7 @@ TAVILY_API_KEY=Tavily密钥                        # https://app.tavily.com 免�
 | `AGENT_MEMORY_COMPACT_AFTER` | 18 | 触发 LLM 压缩的历史消息数 |
 | `AGENT_SOUL_FILE` | `SOUL.md` | 人设文件名（templates/ 下，见下节） |
 
-### 2.1 人设切换（只需改一步配置）
+#### 人设切换（只需改一步配置）
 
 Agent 的人设由 `templates/` 下的 Markdown 文件定义，**默认指向 `SOUL.md`（通用模版）**。
 每次调用模型前，`core/loop.py` 的 `build_system_prompt()` 会读取该文件注入系统提示词。
