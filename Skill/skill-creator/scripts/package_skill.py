@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Skill Packager - Creates a distributable .skill file of a skill folder
+skill Packager - Creates a distributable .skill file of a skill folder
 
 Usage:
     python package_skill.py <path/to/skill-folder> [output-directory]
@@ -48,7 +48,7 @@ def package_skill(skill_path, output_dir=None):
 
     # Validate skill folder exists
     if not skill_path.exists():
-        print(f"[ERROR] Skill folder not found: {skill_path}")
+        print(f"[ERROR] skill folder not found: {skill_path}")
         return None
 
     if not skill_path.is_dir():

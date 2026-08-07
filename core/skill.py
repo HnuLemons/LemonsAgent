@@ -57,7 +57,7 @@ class SkillLoader:
             lines.append(line)
         return "\n".join(lines)
 
-    # 根据技能名称获取对应 Skill 的正文内容，并按照 XML 标签格式封装返回，供 Agent / LLM 使用。
+    # 根据技能名称获取对应 skill 的正文内容，并按照 XML 标签格式封装返回，供 Agent / LLM 使用。
     def get_content(self, name: str) -> str:
         skill = self.skills.get(name)
         if not skill:

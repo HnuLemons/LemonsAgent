@@ -10,7 +10,7 @@ from .exceptions import ConfigError
 PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 
 # 全局路径
-SKILLS_DIR = PACKAGE_ROOT / "Skill"         # skill 仓库
+SKILLS_DIR = PACKAGE_ROOT / "skill"         # skill 仓库
 MEMORY_DIR = PACKAGE_ROOT / "memory"        # 记忆机制目录
 TEMPLATES_DIR = PACKAGE_ROOT / "templates"  # 提示词模版目录
 SESSIONS_DIR = PACKAGE_ROOT / "sessions"    # 会话存储目录（每个 session 一个 JSON 文件）

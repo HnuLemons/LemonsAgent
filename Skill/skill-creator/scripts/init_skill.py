@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Skill Initializer - Creates a new skill from template
+skill Initializer - Creates a new skill from template
 
 Usage:
     init_skill.py <skill-name> --path <path> [--resources scripts,references,assets] [--examples]
@@ -31,7 +31,7 @@ description: [TODO: Complete and informative explanation of what the skill does 
 
 [TODO: 1-2 sentences explaining what this skill enables]
 
-## Structuring This Skill
+## Structuring This skill
 
 [TODO: Choose the structure that best fits this skill's purpose. Common patterns:
 
@@ -57,7 +57,7 @@ description: [TODO: Complete and informative explanation of what the skill does 
 
 Patterns can be mixed and matched as needed. Most skills combine patterns (e.g., start with task-based, add workflow for complex operations).
 
-Delete this entire "Structuring This Skill" section when done - it's just guidance.]
+Delete this entire "Structuring This skill" section when done - it's just guidance.]
 
 ## [TODO: Replace with the first main section based on chosen structure]
 
@@ -270,7 +270,7 @@ def init_skill(skill_name, path, resources, include_examples):
 
     # Check if directory already exists
     if skill_dir.exists():
-        print(f"[ERROR] Skill directory already exists: {skill_dir}")
+        print(f"[ERROR] skill directory already exists: {skill_dir}")
         return None
 
     # Create skill directory
@@ -302,7 +302,7 @@ def init_skill(skill_name, path, resources, include_examples):
             return None
 
     # Print next steps
-    print(f"\n[OK] Skill '{skill_name}' initialized successfully at {skill_dir}")
+    print(f"\n[OK] skill '{skill_name}' initialized successfully at {skill_dir}")
     print("\nNext steps:")
     print("1. Edit SKILL.md to complete the TODO items and update the description")
     if resources:
@@ -321,7 +321,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="Create a new skill directory with a SKILL.md template.",
     )
-    parser.add_argument("skill_name", help="Skill name (normalized to hyphen-case)")
+    parser.add_argument("skill_name", help="skill name (normalized to hyphen-case)")
     parser.add_argument("--path", required=True, help="Output directory for the skill")
     parser.add_argument(
         "--resources",
@@ -338,11 +338,11 @@ def main():
     raw_skill_name = args.skill_name
     skill_name = normalize_skill_name(raw_skill_name)
     if not skill_name:
-        print("[ERROR] Skill name must include at least one letter or digit.")
+        print("[ERROR] skill name must include at least one letter or digit.")
         sys.exit(1)
     if len(skill_name) > MAX_SKILL_NAME_LENGTH:
         print(
-            f"[ERROR] Skill name '{skill_name}' is too long ({len(skill_name)} characters). "
+            f"[ERROR] skill name '{skill_name}' is too long ({len(skill_name)} characters). "
             f"Maximum is {MAX_SKILL_NAME_LENGTH} characters."
         )
         sys.exit(1)

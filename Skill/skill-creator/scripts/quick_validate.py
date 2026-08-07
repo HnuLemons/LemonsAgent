@@ -111,7 +111,7 @@ def _validate_skill_name(name: str, folder_name: str) -> Optional[str]:
             f"Maximum is {MAX_SKILL_NAME_LENGTH} characters."
         )
     if name != folder_name:
-        return f"Skill name '{name}' must match directory name '{folder_name}'"
+        return f"skill name '{name}' must match directory name '{folder_name}'"
     return None
 
 
@@ -134,7 +134,7 @@ def validate_skill(skill_path):
     skill_path = Path(skill_path).resolve()
 
     if not skill_path.exists():
-        return False, f"Skill folder not found: {skill_path}"
+        return False, f"skill folder not found: {skill_path}"
     if not skill_path.is_dir():
         return False, f"Path is not a directory: {skill_path}"
 
@@ -200,7 +200,7 @@ def validate_skill(skill_path):
             "Only SKILL.md, scripts/, references/, and assets/ are allowed.",
         )
 
-    return True, "Skill is valid!"
+    return True, "skill is valid!"
 
 
 if __name__ == "__main__":
